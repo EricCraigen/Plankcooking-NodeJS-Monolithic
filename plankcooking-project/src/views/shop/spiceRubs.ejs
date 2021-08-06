@@ -1,0 +1,94 @@
+<%- include("../../shared/head") %>
+<title>Shop | Plankcooking.com</title>
+<%- include("../../shared/header") %>
+<main class="shop__wrapper container-fluid p-0">
+  <section class="container text-center m-0 p-0">
+    <section class="dropdown d-inline-block">
+      <div class="dropdown__wrapper">
+        <button
+          class="btn shop__dropdown__button text-light dropdown-toggle px-5 my-4"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Shop
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/Shop/SpiceRubs">SPICE RUBS</a>
+          <a class="dropdown-item" href="/Shop/Cookbooks">COOKBOOKS</a>
+          <a class="dropdown-item" href="/Shop/BakingPlanks">BAKING PLANKS</a>
+          <a class="dropdown-item" href="/Shop/BBQPlanks">BBQ PLANKS</a>
+          <a class="dropdown-item" href="/Shop/NutDriver">NUT DRIVER</a>
+        </div>
+      </div>
+    </section>
+    <section class="item__rotator__wrapper">
+      <div class="item__rotator m-0">
+        <img src="<%= category.imgPath %> " alt="Spice Rubs" />
+      </div>
+      <div class="shop__items__content pt-2">
+        <p class="text-left mx-4">
+          <%= category.description %> 
+        </p>
+
+      <% products.forEach(product => { %>
+        <div class="shop__item mx-4">
+          <div class="item__border__wrapper">
+            <h5 class="text-left m-0 p-0 pb-1 mb-1 col-7"><%= product.name %> </h5>
+            <div class="item__description__wrapper">
+              <p class="d-flex flex-column col-7 text-left">
+                <%= product.description %> 
+              </p>
+              <div class="item__information__wrapper d-flex flex-column ml-3">
+                <p>Price: $<%= product.price.toFixed(2) %>  <%= product.priceDescription %></p>
+                <form action="/Shop/SpiceRubs" method="POST">
+                  <p>
+                    Quantity:
+                    <input
+                      type="text"
+                      id="itemQuantity"
+                      name="itemQuantity"
+                      class="item__quantity text-center"
+                      style="width: 30px"
+                      placeholder="0"
+                      value="<%= itemQuantity %>"
+                    />
+                  </p>
+                  <input type="hidden" id="productID" name="productID" value="<%= product.productID %>">
+                  <input type="hidden" id="userID" name="userID" value="<%= uniqueUserID %>">
+                  <input type="hidden" id="usersCartID" name="usersCartID" value="<%= cartSearchResults[1] ? cartSearchResults[1] : cartSearchResults[0] %>">
+                  <input type="hidden" id="prodCategoryID" name="prodCategoryID" value="<%= product.categoryID %>">
+                  <input type="hidden" id="categoryUrl" name="categoryUrl" value="<%= category.websitePath %>">
+                  <button type="submit" class="m-0 p-0">
+                    <img src="/img/AddToCart_button.png" alt="Add to Cart" />
+                  </button>
+                  <% if (errors.length > 0) { %>
+                      <% for( let ctr = 0; ctr < errors.length; ctr++ ) { %>
+                          <p><%= errors[ctr].msg %></p>
+                      <% } %>          
+                  <% } %>
+                  <% if (itemQuantity > 0) { %>
+                   <p>Added to Cart - 
+                     <a href="/Cart/Cart">View Cart</a>
+                   </p>
+                  <% } %> 
+                </form>
+                <img
+                  class="mt-5 mb-3"
+                  src="<%= product.imgPath %> "
+                  alt="<%= product.name %>"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+
+      </div>
+    </section>
+  </section>
+</main>
+
+<%- include("../../shared/footer") %>

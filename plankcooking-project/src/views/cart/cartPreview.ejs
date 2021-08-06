@@ -1,0 +1,353 @@
+<%- include("../../shared/head") %>
+    <title>Cart | Plankcooking.com</title>
+<%- include("../../shared/header") %>
+<% 
+    let totals = [];
+    let subtotal;
+%>
+<main class="cart__wrapper container-fluid p-0">
+    <section class="container text-center m-0 p-0">
+      <section class="cart__content__wrapper mt-3">                  
+            <div class="cart__content mx-4 mt-5 w-100">
+                <div class="cart__info__border__wrapper p-2 m-0">
+                    <div class="cart__info__description col-12 m-0 p-0">
+                        <p class="text-center p-0 m-0">
+                            Preview Order & Enter Payment Information >
+                        </p> 
+                        <p class="text-center p-0 m-0">
+                            Step 3 of 4
+                        </p>   
+                    </div>        
+                </div>
+                <div class="cart__content__main__wrapper m-0 mt-1 p-2 pt-3">
+
+                    <div class="cart__main__content__description m-0 p-0">
+                        <div class="cart__header__billing col-12 p-1">
+                            <p class="text-center p-0 m-0">
+                                Billing Address 
+                            </p>    
+                        </div>  
+                    </div>
+
+                    <div class="cart__main__content__item m-0 p-0">
+
+                        <div class="cart__info__billing__outputs col-12 m-0 p-0 pl-1">
+
+                            <div class="cart__billing__output d-flex justify-content-end align-items-center">
+                                <div class="d-flex col-3 m-0 p-0">
+                                    <p class="text-right w-100 m-0 p-0 pr-2">
+                                        Name:
+                                    </p>
+                                </div>
+                                <div class="d-flex col-9 m-0 p-0">
+                                    <p class="text-left w-100 m-0 p-0">
+                                        <%= userOrderCart[0].BillingFirstName %> <%= userOrderCart[0].BillingLastName %> 
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="cart__billing__output d-flex justify-content-end align-items-center">
+                                <div class="d-flex col-3 m-0 p-0">
+                                    <p class="text-right w-100 m-0 p-0 pr-2">
+                                        Address:
+                                    </p>
+                                </div>
+                                <div class="d-flex col-9 m-0 p-0">
+                                    <p class="text-left w-100 m-0 p-0">
+                                        <%= userOrderCart[0].BillingAddress1 %>
+                                        <%= userOrderCart[0].BillingAddress2 %>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="cart__billing__output d-flex justify-content-end align-items-center">
+                                <div class="d-flex col-3 m-0 p-0">
+                                </div>
+                                <div class="d-flex col-9 m-0 p-0">
+                                    <p class="text-left w-100 m-0 p-0">
+                                        <%= userOrderCart[0].BillingCity %>, <%= userOrderCart[0].BillingState %> <%= userOrderCart[0].BillingPostalCode %>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="cart__billing__output d-flex justify-content-end align-items-center">
+                                <div class="d-flex col-3 m-0 p-0">
+                                    <p class="text-right w-100 m-0 p-0 pr-2">
+                                        Phone:
+                                    </p>
+                                </div>
+                                <div class="d-flex col-9 m-0 p-0">
+                                    <p class="text-left w-100 m-0 p-0">
+                                        <%= userOrderCart[0].BillingPhone %>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="cart__billing__output d-flex justify-content-end align-items-center">
+                                <div class="d-flex col-3 m-0 p-0">
+                                    <p class="text-right w-100 m-0 p-0 pr-2">
+                                        Email:	
+                                    </p>
+                                </div>
+                                <div class="d-flex col-9 m-0 p-0">
+                                    <p class="text-left w-100 m-0 p-0">
+                                        <%= userOrderCart[0].BillingEmail %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+
+                    <div class="cart__preview__shipping m-0 p-0">
+                        <div class="cart__shipping__header col-12 p-1">
+                            <p class="text-center p-0 m-0 w-100">
+                                Shipping Address 
+                            </p>    
+                        </div>  
+                    </div>
+
+                    <div class="cart__main__content__item m-0 p-0">
+
+                        <div class="cart__info__billing__outputs col-12 m-0 p-0 pl-1">
+
+                            <div class="cart__billing__output d-flex justify-content-end align-items-center">
+                                <div class="d-flex col-3 m-0 p-0">
+                                    <p class="text-right w-100 m-0 p-0 pr-2">
+                                        Name:
+                                    </p>
+                                </div>
+                                <div class="d-flex col-9 m-0 p-0">
+                                    <p class="text-left w-100 m-0 p-0">
+                                        <%= userOrderCart[0].ShippingFirstName %> <%= userOrderCart[0].ShippingLastName %>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="cart__billing__output d-flex justify-content-end align-items-center">
+                                <div class="d-flex col-3 m-0 p-0">
+                                    <p class="text-right w-100 m-0 p-0 pr-2">
+                                        Address:
+                                    </p>
+                                </div>
+                                <div class="d-flex col-9 m-0 p-0">
+                                    <p class="text-left w-100 m-0 p-0">
+                                        <%= userOrderCart[0].ShippingAddress1 %>
+                                        <%= userOrderCart[0].ShippingAddress2 %>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="cart__billing__output d-flex justify-content-end align-items-center">
+                                <div class="d-flex col-3 m-0 p-0">
+                                </div>
+                                <div class="d-flex col-9 m-0 p-0">
+                                    <p class="text-left w-100 m-0 p-0">
+                                        <%= userOrderCart[0].ShippingCity %>, <%= userOrderCart[0].ShippingState %> <%= userOrderCart[0].ShippingPostalCode %>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="cart__billing__output d-flex justify-content-end align-items-center">
+                                <div class="d-flex col-3 m-0 p-0">
+                                    <p class="text-right w-100 m-0 p-0 pr-2">
+                                        Phone:
+                                    </p>
+                                </div>
+                                <div class="d-flex col-9 m-0 p-0">
+                                    <p class="text-left w-100 m-0 p-0">
+                                        <%= userOrderCart[0].ShippingPhone %>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="cart__billing__output d-flex justify-content-end align-items-center">
+                                <div class="d-flex col-3 m-0 p-0">
+                                    <p class="text-right w-100 m-0 p-0 pr-2">
+                                        Email:	
+                                    </p>
+                                </div>
+                                <div class="d-flex col-9 m-0 p-0">
+                                    <p class="text-left w-100 m-0 p-0">
+                                        <%= userOrderCart[0].ShippingEmail %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>  
+                          
+                    </div>
+
+                        <div class="cart__main__content__description m-0 p-0 mt-4">
+                            <div class="cart__info__description col-6 p-1">
+                                <p class="text-center p-0 m-0">
+                                    Shipping to You 
+                                </p>    
+                            </div>  
+                            <div class="cart__info__description__two col-2 m-0 p-0">
+                                <p class="text-center p-0 m-0">
+                                    Price
+                                </p>    
+                            </div>  
+                            <div class="cart__info__description__two col-2 m-0 p-0">
+                                <p class="text-center p-0 m-0">
+                                    Quantity
+                                </p>    
+                            </div>
+                            <div class="cart__info__description__two col-2 m-0 p-0">
+                                <p class="text-center p-0 m-0">
+                                    Total
+                                </p>    
+                            </div>     
+                        </div>
+                        <% for( let productCtr = 0; productCtr < userCartProducts.length; productCtr++ ) { %>
+                        <div class="cart__main__items__list m-0 p-0">
+                            <div class="cart__list__item col-6 p-1">
+                                <p class="text-center p-0 m-0">
+                                    <%= productInfo[productCtr].Name %> 
+                                </p>    
+                            </div>  
+                            <div class="cart__list__item__two col-2 m-0 p-0">
+                                <p class="text-center p-0 m-0">
+                                    $<%= productInfo[productCtr].Price.toFixed(2) %>
+                                </p>    
+                            </div>  
+                            <div class="cart__list__item__two col-2 m-0 p-0">
+                                <p class="text-center p-0 m-0">
+                                    1
+                                </p>    
+                            </div>
+                            <div class="cart__list__item__two col-2 m-0 p-0">
+                                <p class="text-center p-0 m-0">
+                                    $<%= (productInfo[productCtr].Price * userCartProducts[productCtr].Qty).toFixed(2) %>
+                                </p>
+                                <% 
+                                    totals.push(productInfo[productCtr].Price * userCartProducts[productCtr].Qty).toFixed(2)
+                                %>    
+                            </div>     
+                        </div>
+                        <% } %> 
+
+                    <div class="cart__preview__subtotal__io m-0 p-0">
+                        <div class="cart__item__subtotal col-8 p-1">
+                        </div>  
+                        <div class="cart__item__subtotal__two col-2 m-0 p-0">
+                            <p class="text-right p-0 m-0 mr-1">
+                                Subtotal:
+                            </p>    
+                        </div>
+                        <div class="cart__info__subtotal__two col-2 m-0 p-0">
+                            <p class="text-center p-0 m-0">
+                                $<%= total = totals.reduce(function(a, b){
+                                    return a + b;
+                                }, 0).toFixed(2); %>
+                            </p>   
+                            <% totals = []; %>  
+                        </div>     
+                    </div>
+
+                    <div class="cart__preview__subtotal__io m-0 p-0 pb-3">
+                          
+                        <div class="cart__item__subtotal__two col-10 d-flex align-items-center justify-content-end m-0 p-0 pr-1">
+                            <label class="m-0 p-0 pr-1" for="shippingHandling">*Shipping & Handling:</label>
+                            <select class="cart__shipping__select" name="shippingHandling" id="shippingHandling">
+                                <option value="">Select</option>
+                                <option value="parcel">U.S.P.S. Parcel (3 - 8 days)</option>
+                                <option value="parcel" selected>U.S.P.S. Priority (2 - 4 days)</option>
+                              </select>   
+                        </div>
+                        <div class="cart__info__subtotal__two col-2 m-0 p-0">
+                            <p class="text-center p-0 m-0">
+                                $11.10
+                            </p>    
+                        </div>     
+                    </div>
+
+                    <div class="cart__preview__subtotal__io__last m-0 p-0 pb-2">
+                        <div class="cart__item__subtotal col-8">
+                        </div>  
+                        <div class="cart__item__subtotal__two col-2 m-0 p-0">
+                            <p class="text-right p-0 m-0 mr-1">
+                                Total:
+                            </p>    
+                        </div>
+                        <div class="cart__info__subtotal__two col-2 m-0 p-0">
+                            <p class="text-center p-0 m-0">
+                                $59.10
+                            </p>    
+                        </div>     
+                    </div>
+
+                    <p class="w-100 text-right">*Shipping durations are estimates and not a guarantee</p>
+
+                    <div class="cart__main__content__description m-0 p-0 mt-4">
+                        <div class="cart__info__description col-12 p-1">
+                            <p class="text-center p-0 m-0">
+                                Payment Information 
+                            </p>    
+                        </div>       
+                    </div>
+
+                    <div class="cart__payment__input d-flex justify-content-end align-items-center py-1">
+                        <div class="d-flex col-2 m-0 p-0">
+                            <p class="text-right w-100 m-0 p-0 pr-2">
+                                Card Type:
+                            </p>
+                        </div>
+                        <div class="d-flex col-10 m-0 p-0">
+                            <select class="cart__shipping__select" name="shippingHandling" id="shippingHandling">
+                                <option value="">Select</option>
+                                <option value="$10.95">U.S.P.S. Parcel (3 - 8 days)</option>
+                                <option value="$11.10" selected>U.S.P.S. Priority (2 - 4 days)</option>
+                              </select> 
+                        </div>
+                    </div>
+
+                    <div class="cart__payment__input d-flex justify-content-end align-items-center py-1">
+                        <div class="d-flex col-2 m-0 p-0">
+                            <p class="text-right w-100 m-0 p-0 pr-2">
+                                Card Number:
+                            </p>
+                        </div>
+                        <div class="d-flex col-10 m-0 p-0">
+                            <input
+                                type="text"
+                                class="item__quantity"
+                                style="width: 175px"
+                                placeholder="Card Number"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="cart__payment__input d-flex justify-content-end align-items-center py-1">
+                        <div class="d-flex col-2 m-0 p-0">
+                            <p class="text-right w-100 m-0 p-0 pr-2">
+                                Expiration:
+                            </p>
+                        </div>
+                        <div class="d-flex col-10 m-0 p-0">
+                            <select class="cart__shipping__select" name="shippingHandling" id="shippingHandling">
+                                <option value="">Select</option>
+                                <option value="parcel">U.S.P.S. Parcel (3 - 8 days)</option>
+                                <option value="parcel" selected>U.S.P.S. Priority (2 - 4 days)</option>
+                              </select> 
+                        </div>
+                    </div>
+
+                    <div class="cart__payment__input__last d-flex justify-content-end align-items-center py-3">
+                        <div class="cart__info__description col-7 m-0 p-0">
+                        </div>    
+                        <div class="cart__info__links col-5 m-0 p-0">
+                            <a href="/Cart/Checkout">
+                                <img src="/img/Back_button.png" alt="Back" />
+                            </a>
+                            <a href="/Cart/Receipt">
+                                <img src="/img/Purchase_button.png" alt="Purchase" />
+                            </a> 
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+    </section>
+  </main>
+
+<%- include("../../shared/footer") %>

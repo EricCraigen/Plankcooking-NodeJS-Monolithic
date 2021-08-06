@@ -1,0 +1,135 @@
+<%- include("../../shared/head") %>
+    <title>Cart | Plankcooking.com</title>
+<%- include("../../shared/header") %>
+<% 
+    let totals = [];
+    let subtotal;
+%>
+<main class="cart__wrapper container-fluid p-0">
+    <section class="container text-center m-0 p-0">
+      <section class="cart__content__wrapper mt-3">                  
+            <div class="cart__content mx-4 mt-5 w-100">
+                <div class="cart__info__border__wrapper p-2 m-0">
+                    <div class="cart__info__description col-7 m-0 p-0">
+                        <p class="text-left p-0 m-0">
+                           SHOPPING CART: Your shopping cart contains <%= productInfo.length %> items. 
+                        </p>    
+                    </div>    
+                    <div class="cart__info__links col-5 m-0 p-0">
+                        <a href="/Shop/Products">
+                            <img src="/img/ContinueShopping_button.png" alt="Continue Shopping" />
+                        </a>
+                        <a href="/Cart/Checkout">
+                            <img src="/img/Checkout_button.png" alt="Checkout" />
+                        </a> 
+                    </div>    
+                </div>
+                
+                <div class="cart__content__main__wrapper <%= productInfo.length === 0 ? "d-none" : "" %> m-0 mt-4 p-2">
+
+                    <div class="cart__main__content__description m-0 p-0">
+                        <div class="cart__info__description col-6 p-1">
+                            <p class="text-left p-0 m-0">
+                                Shipping to You 
+                            </p>    
+                        </div>  
+                        <div class="cart__info__description__two col-2 m-0 p-0">
+                            <p class="text-center p-0 m-0">
+                                Price
+                            </p>    
+                        </div>  
+                        <div class="cart__info__description__two col-2 m-0 p-0">
+                            <p class="text-center p-0 m-0">
+                                Quantity
+                            </p>    
+                        </div>
+                        <div class="cart__info__description__two col-2 m-0 p-0">
+                            <p class="text-center p-0 m-0">
+                                Total
+                            </p>    
+                        </div>     
+                    </div>
+                
+                    <% for( let productCtr = 0; productCtr < userCartProducts.length; productCtr++ ) { %>
+                        <div class="cart__main__content__item m-0 p-0">
+                            <div class="cart__info__description__item col-6 m-0 p-0 pl-1">
+                                <p class="text-left p-0 m-0 py-3">
+                                    <%= productInfo[productCtr].Name %> 
+                                </p>    
+                            </div>  
+                            <div class="cart__info__description__item__two col-2 m-0 p-0 py-3">
+                                <p class="text-center p-0 m-0 py-4">
+                                    $<%= productInfo[productCtr].Price.toFixed(2) %>
+                                </p>    
+                            </div>  
+                            <div class="cart__info__description__item__two col-2 m-0 p-0 py-3">
+                                <form action="/Cart/Checkout" method="POST">
+                                    <div class="text-center p-0 m-0 py-3">
+                                        <input
+                                            type="text"
+                                            id="itemQuantity"
+                                            name="itemQuantity<%= userCartProducts[productCtr].ProductID %>"
+                                            class="item__quantity text-center"
+                                            style="width: 30px"
+                                            placeholder="0"
+                                            value="<%= userCartProducts[productCtr].Qty %>"
+                                        />
+                                    <input type="hidden" id="userID" name="userID" value="<%= uniqueUserID %>">
+                                    <input type="hidden" id="prodID" name="prodID" value="<%= userCartProducts[productCtr].ProductID  %>">
+                                    </div> 
+                                </form>   
+                            </div>
+                            <div class="cart__info__description__item__two col-2 m-0 p-0 py-3">
+                                <div class="text-center p-0 m-0">
+                                    <p class="text-center m-0 p-0">$<%= (productInfo[productCtr].Price * userCartProducts[productCtr].Qty).toFixed(2) %></p>
+                                    <% 
+                                        totals.push(productInfo[productCtr].Price * userCartProducts[productCtr].Qty).toFixed(2)
+                                     %>
+                                     <form action="/Cart/Cart" method="POST">
+                                        <button class="m-0 p-0 my-3" type="submit"> 
+                                            <img class="m-0 p-0" style="width: 100%; height: auto;" src="/img/Remove_Button.png" alt="Remove Items">
+                                        </button>
+                                    </form>
+                                </div>    
+                            </div> 
+                        </div>
+                    <% } %> 
+
+                    <div class="cart__main__content__subtotal m-0 p-0 py-1">
+                        <div class="cart__item__subtotal col-8 p-1">
+                        </div>  
+                        <div class="cart__item__subtotal__two col-2 m-0 p-0 py-1">
+                            <p class="text-right p-0 m-0 py-1 mr-1">
+                                Subtotal: 
+                            </p>    
+                        </div>
+                        <div class="cart__info__subtotal__two col-2 m-0 p-0 py-1">
+                            <p class="text-center p-0 m-0 py-1">
+                                    $<%= total = totals.reduce(function(a, b){
+                                        return a + b;
+                                    }, 0).toFixed(2); %> 
+                            </p>    
+                            <% totals = []; %> 
+                        </div>     
+                    </div>
+
+                    <div class="cart__main__content__subtotal m-0 p-0 py-2">
+                            <div class="cart__info__description col-7 m-0 p-0">
+                            </div>    
+                            <div class="cart__info__links col-5 m-0 p-0">
+                                <a href="/Shop/Products">
+                                    <img src="/img/ContinueShopping_button.png" alt="Continue Shopping" />
+                                </a>
+                                <a href="/Cart/Checkout">
+                                    <img src="/img/Checkout_button.png" alt="Checkout" />
+                                </a> 
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+    </section>
+    </section>
+  </main>
+
+<%- include("../../shared/footer") %>

@@ -1,0 +1,30 @@
+.policies__links {
+    border-top: dotted #bc9a6a;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px !important;
+}
+
+.policies__links > a {
+    color: #bc9a6a !important;
+    border-bottom: dotted #bc9a6a;
+    margin-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+
+.policies__main__content > p, h6 {
+    color: #f8f3dc !important;
+}
+
+.policies__main__content > p > a {
+    color: #bc9a6a !important;
+}
+
+.policies__main__content > ul {
+    list-style-type: square;
+}
+
+.policies__main__content > ul > li {
+    color: #f8f3dc !important;
+
+}

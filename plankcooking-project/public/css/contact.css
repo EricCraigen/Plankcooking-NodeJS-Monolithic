@@ -1,0 +1,108 @@
+.contact__wrapper {
+    /* margin-top: 10px !important; */
+    display: flex;
+    justify-content: center;
+}
+
+/* .about__dropdown__button {
+    background-color: #22190f !important;
+}
+
+.dropdown-menu {
+    width: 100%;
+    background-color: #22190f !important;
+}
+.dropdown-menu > a {
+    color: white !important;
+} */
+
+/* .dropdown-menu > a:hover {
+    color: black !important;
+    border-radius: 7px !important;
+} */
+
+.contact__content__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/img/PaperBackground_Middle.png") !important;
+    background-repeat: repeat;
+    background-size: contain;
+    /* padding-bottom: 400px; */
+}
+
+/* .reviews__double__content {
+    display: flex;
+    flex-direction: row;
+} */
+
+/* .reviews__double__first {
+    position: relative;
+    bottom: 20px;
+    right: 20px;
+    align-self: flex-start;
+    background-image: url("/img/Photo_Background_Martha.png") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px;
+    display: flex;
+    overflow: visible;
+} */
+
+/* .reviews__double__first > img {
+    position: relative;
+    bottom: 0px;
+    left: 20px;
+    width: 90%; 
+    height: auto;
+} */
+
+/* .reviews__double__second {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+
+/* .reviews__double__second > h5 {
+    color: #bc9a6a;
+    border-bottom: dotted #bc9a6a;
+    width: 85%;
+} */
+
+/* .reviews__double__second > p {
+    text-decoration: underline;
+    text-underline-offset: 5;
+    color: #f8f3dc !important;
+    width: 85%;
+}  */
+
+.contact__content {
+    /* color: #bc9a6a; */
+    border-top: dotted #bc9a6a;
+}
+
+.contact__main__content {
+    border-bottom: dotted #bc9a6a;
+}
+
+.contact__main__content > p {
+    color: #f8f3dc !important;
+}
+
+.contact__main__content > p > a {
+    color: #bc9a6a !important;
+}
+
+
+.contact__border__wrapper > h5 {
+    font-size: 13pt !important;
+    color: #bc9a6a;
+    border-right: dotted #bc9a6a;
+    border-bottom: dotted #bc9a6a;
+}
+
+.contact__footer__content {
+    color: #f8f3dc !important;
+}
+

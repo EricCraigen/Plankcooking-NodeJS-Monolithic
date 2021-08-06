@@ -1,0 +1,110 @@
+<%- include("../../shared/head") %>
+<title>Shop | Plankcooking.com</title>
+<%- include("../../shared/header") %>
+<main class="shop__wrapper container-fluid p-0">
+  <section class="container text-center m-0 p-0">
+    <section class="dropdown d-inline-block">
+      <div class="dropdown__wrapper">
+        <button
+          class="btn shop__dropdown__button text-light dropdown-toggle px-5 my-4"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Shop
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/Shop/SpiceRubs">SPICE RUBS</a>
+          <a class="dropdown-item" href="/Shop/Cookbooks">COOKBOOKS</a>
+          <a class="dropdown-item" href="/Shop/BakingPlanks">BAKING PLANKS</a>
+          <a class="dropdown-item" href="/Shop/BBQPlanks">BBQ PLANKS</a>
+          <a class="dropdown-item" href="/Shop/NutDriver">NUT DRIVER</a>
+        </div>
+      </div>
+    </section>
+    <section class="item__rotator__wrapper">
+      <div class="item__rotator m-0">
+        <img src="<%= smallCategory.imgPath %> " alt="Baking Planks" />
+      </div>
+      <div class="shop__items__content pt-2">
+        <p class="d-flex flex-column mx-4">
+          Cedar and Alder planks impart a subtle yet full flavored aroma 
+          to anything roasted on them. Our planks are made from clear kiln 
+          dried Western Red Cedar and Alder. Cedar roasting planks come in 
+          two sizes. Alder planks are available in one size only.
+        </p>
+    
+          <% for( let categoryCtr = 0; categoryCtr < itemResults.length; categoryCtr++ ) { %>
+        <div class="shop__item mx-4">
+          <div class="item__border__wrapper">
+            <h5 class="text-left m-0 p-0 py-2 col-7"><%= itemResults[categoryCtr].Name.split('-')[1] %> </h5>
+            <div class="item__description__wrapper">
+              <div class="item__information__wrapper d-flex flex-column ml-3 w-100">
+            <% for( let itemCtr = 0; itemCtr < pageResults[0].length; itemCtr++ ) { %>
+              <%  %> 
+                <p class="d-flex flex-column text-left">
+                  <%= pageResults[categoryCtr][itemCtr].Description %> 
+                </p>
+                <div class="item__bp__wrapper d-flex flex-column mb-2">
+                  <div class="item__info__one d-flex justify-content-between">
+                    <div class="item__bp d-flex flex-column align-items-start">
+                      <p class="text-left mt-2"><%= pageResults[categoryCtr][itemCtr].Name %></p>
+                      <% if (pageResults[categoryCtr][itemCtr].ImagePath) { %>
+                        <img
+                        class="mt-5 mb-3"
+                        src="<%= pageResults[categoryCtr][itemCtr].ImagePath %> "
+                        alt="Passion & Palate"
+                      />
+                      <% } %>
+                    </div>
+                      <div class="item__bp d-flex flex-column justify-content-end mb-5 mr-5">
+                        <p class="m-0 p-0">Price: $<%= pageResults[categoryCtr][itemCtr].Price.toFixed(2) %> </p>
+                        <form action="/Shop/BakingPlanks/" method="POST">
+                        <p>
+                          Quantity:
+                          <input
+                            type="text"
+                            id="itemQuantity"
+                            name="itemQuantity"
+                            class="item__quantity text-center"
+                            style="width: 30px"
+                            placeholder="0"
+                            value="<%= itemQuantity %>"
+                          />
+                        </p>
+                        <input type="hidden" id="productID" name="productID" value="<%= pageResults[categoryCtr][itemCtr].ProductID %>">
+                        <input type="hidden" id="userID" name="userID" value="<%= uniqueUserID %>">
+                        <input type="hidden" id="usersCartID" name="usersCartID" value="<%= cartSearchResults[1] ? cartSearchResults[1] : cartSearchResults[0] %>">
+                        <input type="hidden" id="prodCategoryID" name="prodCategoryID" value="<%= pageResults[categoryCtr][itemCtr].CategoryID %>">
+                        <input type="hidden" id="categoryUrl" name="categoryUrl" value="<%= itemResults[2].WebsitePath ? itemResults[2].WebsitePath : "" %>">
+                        <button type="submit" class="m-0 p-0">
+                          <img src="/img/AddToCart_button.png" alt="Add to Cart" />
+                        </button>
+                        <% if (errors.length > 0) { %>
+                          <% for( let ctr = 0; ctr < errors.length; ctr++ ) { %>
+                              <p><%= errors[ctr].msg %></p>
+                          <% } %>          
+                      <% } %>
+                      <% if (itemQuantity > 0) { %>
+                       <p>Added to Cart - 
+                         <a href="/Cart/Cart">View Cart</a>
+                       </p>
+                      <% } %>
+                      </form>
+                      </div>
+                  </div>
+              </div>
+              <% }; %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }; %>
+      </div>
+    </section>
+  </section>
+</main>
+
+<%- include("../../shared/footer") %>

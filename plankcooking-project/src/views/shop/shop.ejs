@@ -1,0 +1,52 @@
+<%- include("../../shared/head") %>
+    <title>Shop | Plankcooking.com</title>
+<%- include("../../shared/header") %>
+<main class="shop__wrapper container-fluid p-0">
+    <section class="container text-center m-0 p-0">
+      <section class="dropdown d-inline-block">
+        <div class="dropdown__wrapper">
+            <button class="btn shop__dropdown__button text-light dropdown-toggle px-5 my-4" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Shop
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="/Shop/SpiceRubs">SPICE RUBS</a>
+              <a class="dropdown-item" href="/Shop/Cookbooks">COOKBOOKS</a>
+              <a class="dropdown-item" href="/Shop/BakingPlanks">BAKING PLANKS</a>
+              <a class="dropdown-item" href="/Shop/BBQPlanks">BBQ PLANKS</a>
+              <a class="dropdown-item" href="/Shop/NutDriver">NUT DRIVER</a>
+          </div>
+        </div>
+      </section>
+        <section class="shop__content__wrapper mt-3" id="/SpiceRubs">              
+            <div class="shop__content mx-4 mt-5">
+                <div class="shop__border__wrapper">
+                    <h5 class="text-center m-0 p-0 py-2 col-7">
+                        PLANKCOOKING PRODUCTS
+                    </h5>
+                </div>
+                <div class="shop__main__content  m-0 p-0">
+                    
+                    <div class="shop__cubes__wrapper mt-2 mb-5">
+                        <a href="/Shop/SpiceRubs">
+                          <img src="/img/SpiceRubs_cube.png" alt="SpiceRubs" />
+                        </a>
+                        <a href="/Shop/BakingPlanks">
+                          <img src="/img/BakingPlanks_cube.png" alt="BakingPlanks" />
+                        </a>
+                        <a href="/Shop/Cookbooks">
+                          <img src="/img/Cookbooks_cube.png" alt="Cookbooks" />
+                        </a>
+                        <a href="/Shop/BBQPlanks">
+                          <img src="/img/BBQ_Planks_cube.png" alt="BBQ_Planks" />
+                        </a>
+                        
+                    </div>
+                    
+                </div>  
+            </div>
+        </section>
+
+    </section>
+  </main>
+
+<%- include("../../shared/footer") %>

@@ -1,0 +1,106 @@
+.recipes__wrapper {
+    /* margin-top: 10px !important; */
+    display: flex;
+    justify-content: center;
+}
+
+/* .about__dropdown__button {
+    background-color: #22190f !important;
+} */
+
+/* .dropdown-menu {
+    width: 100%;
+    background-color: #22190f !important;
+}
+.dropdown-menu > a {
+    color: white !important;
+}
+
+.dropdown-menu > a:hover {
+    color: black !important;
+    border-radius: 7px !important;
+} */
+
+.recipes__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .about__rotator {
+    background-image: url("/img/Photo_Background.png") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px;
+}
+
+.about__rotator > img {
+    position: relative;
+    bottom: 5px;
+    width: 100%; 
+    height: auto;
+} */
+
+/* .about__contents__wrapper {
+    display: flex;
+    justify-content: center;
+} */
+
+.recipes__content {
+    position: relative;
+    bottom: 25px;
+    width: 86%;
+    background-image: url("/img/PaperBackground_Middle.png") !important;
+    background-repeat: repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipes__content > h5 {
+    color: #bc9a6a;
+    border-top: dotted #bc9a6a;
+    border-bottom: dotted #bc9a6a;
+}
+
+.recipes__content > p {
+    /* text-decoration: underline; */
+    /* text-underline-offset: 5; */
+    color: #f8f3dc !important;
+}
+
+.recipes__double__content {
+    display: flex;
+}
+
+.recipes__double__first {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.recipes__double__first > p {
+    color: #f8f3dc !important;
+}
+
+.recipes__double__second {
+    display: flex;
+    /* justify-content: start; */
+}
+
+.recipes__double__second > img {
+    width: 100%; 
+    height: auto;
+}
+
+/* .recipes__content > p > a {
+    text-decoration: underline;
+    text-underline-offset: 5;
+    color: white !important;
+} */
+
+/* .double__content__wrapper > p {
+    color: #f8f3dc !important;
+} */
+

@@ -1,0 +1,29 @@
+    <footer class="container-fluid">
+            <section class="footer__wrapper container mt-5 mb-5">
+              <a href="/About">ABOUT</a>
+              <a href="/Shop/Products"> | SHOP</a>
+              <a href="/Reviews"> | REVIEWS</a>
+              <a href="/Recipes"> | RECIPES</a>
+              <a href="/Contact"> | CONTACT</a>
+              <a href="/Policies"> | POLICIES</a>
+              <p style="font-size: 0.9rem;">&copy;Copyright 2020 Plankcooking.com. All Rights Reserved</p>
+            </section>
+    </footer>
+  
+
+    <script src="/js/jquery.min.js"></script>
+    <script>
+      
+      $(window).scroll(function(){
+        if ($(window).scrollTop() <= 178){
+          $('#toggleDisplay').hide(400).removeClass('d-flex');
+        } else {
+          $('#toggleDisplay').show(400).addClass('d-flex');
+        }
+      });
+    
+    </script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

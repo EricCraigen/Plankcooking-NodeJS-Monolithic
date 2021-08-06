@@ -1,0 +1,41 @@
+.home__wrapper {
+    margin-top: 10px !important;
+    display: flex;
+    justify-content: center;
+}
+
+.home__rotator__wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.home__rotator {
+    width: 100%;
+    height: auto;
+}
+
+.home__cubes__wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.home__cubes__wrapper > a {
+    width: 25%;
+    height: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.home__cubes__wrapper > a > img {
+    width: 100%;
+    height: auto;
+}
+
+.home__footer__plank {
+    width: 100%;
+    height: auto;
+}
+
+.footer__wrapper {
+    text-align: center;
+}
